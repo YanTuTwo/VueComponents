@@ -1,19 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <Index></Index>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Index from '@/components/ZForm/FormIndex.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+    components: {
+        Index
+    },
+    data() {
+        return {
+            inputValue: 'dsadasd'
+        };
+    }
+};
 </script>
 
 <style>
