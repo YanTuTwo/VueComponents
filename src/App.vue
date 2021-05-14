@@ -1,16 +1,21 @@
 <template>
     <div id="app">
-        <Index></Index>
+        <!-- 表单组件测试 -->
+        <FormIndex></FormIndex>
+        <!-- 路由测试 -->
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-view />
     </div>
 </template>
 
 <script>
-import Index from '@/components/ZForm/FormIndex.vue';
+import FormIndex from '@/components/ZForm/FormIndex.vue';
 
 export default {
     name: 'App',
     components: {
-        Index
+        FormIndex
     },
     data() {
         return {
