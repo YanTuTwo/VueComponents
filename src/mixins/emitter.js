@@ -1,7 +1,7 @@
 // 祖孙组件通信
 function broadcast(componentName, eventName, params) {
     this.$children.forEach(child => {
-        let name = child.$options.componentName;
+        const name = child.$options.componentName;
         if (name === componentName) {
             child.$emit.apply(child, [eventName, params])
         } else {
@@ -19,7 +19,7 @@ export default {
             while (parent && (!name || name !== componentName)) {
                 parent = parent.$parent;
 
-                if (parent) {  
+                if (parent) {
                     name = parent.$options.componentName
                 }
             }
