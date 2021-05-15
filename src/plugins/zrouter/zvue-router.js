@@ -6,6 +6,8 @@
  *  3、创建router-link 和 router-view
  */
 
+import { createMatcher } from './create-matcher';
+
 let Vue
 
 class VueRoute {
@@ -14,6 +16,8 @@ class VueRoute {
 
         // path和route的映射
         this.routeMap = {}
+
+        this.matcher = createMatcher(options.routes || [], this)
 
         this.app = new Vue({
             data: {
