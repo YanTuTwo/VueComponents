@@ -8,7 +8,7 @@
                 <ZInput v-model="model.password" type="password"></ZInput>
             </ZFormItem>
             <ZFormItem>
-                <ZButton @click="onLogin">登录</ZButton>
+                <ZButton @click.stop="onLogin">登录</ZButton>
             </ZFormItem>
         </ZForm>
     </div>
@@ -19,6 +19,7 @@ import ZForm from './ZForm'
 import ZFormItem from './ZFormItem'
 import ZInput from '../ZInput'
 import ZButton from '../ZButton'
+import createModel from '../../utils/createModel'
 export default {
     components: {
         ZForm,
@@ -43,7 +44,14 @@ export default {
         onLogin() {
             // 检查规则
             this.$refs['z-form'].validate((isValid) => {
-                console.log(isValid ? '成功' : '失败');
+                // console.log(isValid ? '成功' : '失败');
+                console.log(isValid);
+                const comp = createModel({
+                    title: '登录',
+                    message: isValid ? '成功' : '失败',
+                    duration: 5000
+                })
+                comp.show();
             })
         }
     }
